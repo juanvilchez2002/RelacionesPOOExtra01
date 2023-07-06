@@ -26,7 +26,7 @@ public class App {
         PersonaServicio pse = new PersonaServicio();
         ArrayList<Persona> listaPersona = pse.crearPersona();
         
-        System.out.println(listaPersona.toString());
+        pse.adoptarPerro(listaPerro, listaPersona);
 
     }
     

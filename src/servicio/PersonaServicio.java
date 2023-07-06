@@ -19,13 +19,18 @@ public class PersonaServicio {
     Scanner consola = new Scanner(System.in);
     
     public ArrayList<Persona> crearPersona(){
+        
         System.out.println("---- Ingrese Datos del Personas para Adopción ----");
         
-//        this.nombre = nombre;
-//        this.apellido = apellido;
-//        this.edad = edad;
-//        this.documento = documento;
-//        this.perro = perro; 
+        //Ingresando registros automaticamente
+        listadoPersona.add(new Persona("Amilcar", "Marx",48 , null, null));
+        listadoPersona.add(new Persona("Juan", "Rafaga", 25 , null, null));
+        listadoPersona.add(new Persona("Carolina", "Mejia", 31 , null, null));
+        listadoPersona.add(new Persona("Jorge David", "Gonzalez",25 , null, null));
+        listadoPersona.add(new Persona("Pablo Andres", "Matuzalem",17 , null, null));
+        listadoPersona.add(new Persona("Patricia", "Aparicio",21 , null, null));
+        listadoPersona.add(new Persona("Juan Ignacio", "Autista",18 , null, null));
+
         do{
             System.out.print("Ingrese nombre: ");
             String nombre = consola.nextLine();
@@ -37,7 +42,7 @@ public class PersonaServicio {
             int edad = consola.nextInt();
             
             consola.nextLine();
-            listadoPersona.add(new Persona(nombre, apellido, edad, documento));
+            listadoPersona.add(new Persona(nombre, apellido, edad, documento, null));
             
             System.out.println("Registro realizado!!!");
             
@@ -52,8 +57,32 @@ public class PersonaServicio {
         return listadoPersona;
     }
     
-    public void adoptarPerro(ArrayList<Perro> perro, ArrayList<Persona> listadoPersona){
+    public void adoptarPerro(ArrayList<Perro> listaPerro, ArrayList<Persona> listadoPersona){
         
+        System.out.println("--- Adoptar Perro ---");
+        System.out.print("Nombre del Adoptante: ");
+        String nombre = consola.nextLine();
+        System.out.print("Apellido del Adoptante: ");
+        String apellido = consola.nextLine();
         
+        int index=0;
+        //validando si el adoptante se encuentra registrado
+        for(Persona adoptante: listadoPersona){
+            index+=1;
+            if(adoptante.getNombre().equalsIgnoreCase(nombre) && adoptante.getApellido().equalsIgnoreCase(apellido)){
+                System.out.println("Encontrado en el registro: "+(index-1));
+            }
+        }
+        
+        System.out.println("--- Listado de Perros Disponibles ---");
+        System.out.println("Nombre\tRaza\tTamaño\tEdad");
+        for(Perro per: listaPerro){     
+            if(!per.isAdoptado()){
+                System.out.println(per.getNombre()+"\t"+per.getRaza()+"\t"+per.getTamano()+"\t"+per.getEdad());
+            }
+        }
+        
+        System.out.print("Ingrese nombre del perro a adoptar: ");
+        String nombrePerro = consola.nextLine();
     } 
 }

@@ -31,7 +31,6 @@ public class Persona {
         this.apellido = apellido;
         this.edad = edad;
         this.documento = documento;
-        this.perro = [];
     }
     
     

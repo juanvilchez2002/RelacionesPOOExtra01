@@ -12,7 +12,17 @@ public class PerroServicio {
     Scanner consola = new Scanner(System.in);
 
     public ArrayList<Perro> crearPerro(){
+        
         System.out.println("---- Ingrese Datos del Perro para Adopción ----");
+        
+        //Ingresdando automaticamente registros de perro
+        listadoPerro.add(new Perro("Chiquito", "Pitbull", 6, "Grande", false));
+        listadoPerro.add(new Perro("Mefistofeles", "Border Collie", 2, "Media", false));
+        listadoPerro.add(new Perro("Fausto", "Chihuaha", 12, "Pequeño", false));
+        listadoPerro.add(new Perro("Firulais", "Callejero", 3, "Mediano", false));
+        listadoPerro.add(new Perro("Godzilla", "Micro Toy", 1, "Pequeño", false));
+        listadoPerro.add(new Perro("Fenrir", "Callejero", 4, "Pequeño", false));
+        listadoPerro.add(new Perro("Misky", "Peruano", 4, "Grande", false));
         
         do{
             System.out.print("Ingrese nombre: ");
